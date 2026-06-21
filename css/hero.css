@@ -1,0 +1,187 @@
+/* ============================================================
+   hero.css
+   ============================================================ */
+
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* ── Imagem de fundo ──────────────────────────────────────── */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+  display: block;
+}
+
+/* ── Overlay: gradiente forte à esquerda onde fica o texto ── */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4,4,6,.92) 0%,
+      rgba(4,4,6,.75) 45%,
+      rgba(4,4,6,.20) 80%,
+      rgba(4,4,6,.05) 100%
+    );
+}
+
+/* ── Container posicionado acima do overlay ──────────────── */
+.hero > .container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+/* ── Bloco de conteúdo: fixo à esquerda, max 580px ──────── */
+.hero-content {
+  padding: 120px 0 90px;
+  max-width: 580px;
+  /* sem margin auto: fica colado à esquerda do container */
+}
+
+/* Eyebrow */
+.hero-content .eyebrow {
+  font-family: var(--mono);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Título — sempre branco puro com sombra para contraste */
+.hero-content h1 {
+  font-size: clamp(2.2rem, 5vw, 3.6rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  color: #ffffff;
+  text-shadow: 0 2px 24px rgba(0,0,0,.6);
+  margin-bottom: 20px;
+}
+
+/* Palavras em dourado no título */
+.hero-highlight {
+  background: linear-gradient(135deg, var(--gold-pale), var(--gold));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  /* Fallback: dourado sólido se o clip não funcionar */
+  -webkit-text-fill-color: transparent;
+}
+
+/* Parágrafo — branco levemente suavizado */
+.hero-desc {
+  color: rgba(255, 252, 245, 0.85);
+  font-size: 1rem;
+  max-width: 480px;
+  line-height: 1.65;
+  margin-bottom: 0;
+  text-shadow: 0 1px 8px rgba(0,0,0,.5);
+}
+
+/* ── Stats ───────────────────────────────────────────────── */
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin: 36px 0 34px;
+  flex-wrap: wrap;
+}
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.stat-icon  { width: 28px; height: 28px; color: var(--gold); flex-shrink: 0; }
+.stat-num   {
+  font-family: var(--display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #ffffff;
+  text-shadow: 0 1px 6px rgba(0,0,0,.5);
+}
+.stat-label {
+  font-size: .67rem;
+  color: rgba(220, 210, 190, 0.75);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  line-height: 1.3;
+}
+
+/* ── Botões de ação ──────────────────────────────────────── */
+.hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+/* ── Rodapé localização ──────────────────────────────────── */
+.hero-footer-bar {
+  margin-top: 38px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(212,169,84,.22);
+}
+.hero-loc {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--mono);
+  font-size: .68rem;
+  letter-spacing: .08em;
+  color: rgba(210, 200, 175, 0.70);
+  text-transform: uppercase;
+}
+.hero-loc svg { color: var(--gold); flex-shrink: 0; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero { min-height: 82vh; }
+
+  .hero-bg { object-position: 65% top; }
+
+  /* Em mobile o overlay cobre mais uniformemente */
+  .hero-overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(4,4,6,.85) 0%,
+      rgba(4,4,6,.70) 60%,
+      rgba(4,4,6,.50) 100%
+    );
+  }
+
+  .hero-content {
+    padding: 100px 0 70px;
+    max-width: 100%;
+  }
+
+  .hero-stats { gap: 20px 28px; }
+}
+
+@media (max-width: 480px) {
+  .hero { min-height: 75vh; }
+
+  .hero-content { padding: 90px 0 60px; }
+
+  .hero-content h1 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
+
+  .hero-stats { gap: 14px 22px; }
+
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}

@@ -1,0 +1,66 @@
+/* ============================================================
+   theme.css — Variáveis de cor para modo escuro e claro.
+   Deve ser o PRIMEIRO CSS carregado.
+   ============================================================ */
+
+/* Fallback (dark) para caso o script inline não execute */
+:root {
+  --obsidian:   #0A0A0C;
+  --charcoal:   #15151B;
+  --charcoal-2: #1E1E26;
+  --line:       rgba(212, 169, 84, .16);
+  --gold:       #D4A954;
+  --gold-deep:  #A9762E;
+  --gold-pale:  #F0D9A0;
+  --ink:        #F4F2EC;
+  --ink-muted:  #9C9AA3;
+  --btn-gold-text: #15110a;
+}
+
+[data-theme="dark"] {
+  --obsidian:   #0A0A0C;
+  --charcoal:   #15151B;
+  --charcoal-2: #1E1E26;
+  --line:       rgba(212, 169, 84, .16);
+  --gold:       #D4A954;
+  --gold-deep:  #A9762E;
+  --gold-pale:  #F0D9A0;
+  --ink:        #F4F2EC;
+  --ink-muted:  #9C9AA3;
+  --btn-gold-text: #15110a;
+}
+
+/* Modo claro: fundo off-white quente, dourado mais escuro para AA (4.5:1 sobre #F0EDE4) */
+[data-theme="light"] {
+  --obsidian:   #F0EDE4;
+  --charcoal:   #FDFAF3;
+  --charcoal-2: #E9E4D5;
+  --line:       rgba(120, 86, 20, .2);
+  --gold:       #9A6E18;   /* contraste AA ≥ 4.5:1 sobre #F0EDE4 */
+  --gold-deep:  #6B4A0E;
+  --gold-pale:  #5A3C08;   /* texto dourado sobre claro — AA */
+  --ink:        #1A1714;
+  --ink-muted:  #5C5650;
+  --btn-gold-text: #15110a;
+}
+
+/* Transição suave (~250ms) — desativada se prefers-reduced-motion */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    transition: background-color 250ms ease;
+  }
+  body,
+  header,
+  .icon-card,
+  .vcard,
+  .faq-item,
+  .testi-card,
+  .featured,
+  .mobile-nav,
+  footer {
+    transition:
+      background-color 250ms ease,
+      border-color    250ms ease,
+      color           250ms ease;
+  }
+}

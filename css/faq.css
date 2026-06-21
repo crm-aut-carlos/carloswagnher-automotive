@@ -1,0 +1,57 @@
+/* ============================================================
+   faq.css — Accordion + CTA banner
+   ============================================================ */
+
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+.faq-q {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 20px 22px;
+  background: none; border: none;
+  color: var(--ink);
+  font-weight: 600; font-size: .92rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+/* Plus/minus icon */
+.faq-q .plus {
+  width: 18px; height: 18px;
+  flex-shrink: 0;
+  position: relative;
+  color: var(--gold);
+}
+.faq-q .plus::before,
+.faq-q .plus::after {
+  content: '';
+  position: absolute;
+  background: var(--gold);
+  transition: transform .3s, opacity .3s;
+}
+.faq-q .plus::before { width: 100%; height: 2px; top: 50%; left: 0; transform: translateY(-50%); }
+.faq-q .plus::after  { height: 100%; width: 2px; left: 50%; top: 0; transform: translateX(-50%); }
+.faq-item.open .faq-q .plus::after { transform: translateX(-50%) rotate(90deg); opacity: 0; }
+
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .35s ease; }
+.faq-a p { padding: 0 22px 20px; color: var(--ink-muted); font-size: .86rem; line-height: 1.6; }
+
+/* ── CTA banner ────────────────────────────────────────────── */
+.cta-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px; flex-wrap: wrap;
+  background: linear-gradient(135deg, rgba(212,169,84,.12), rgba(212,169,84,.03));
+  border: 1px solid rgba(212,169,84,.3);
+  border-radius: 20px;
+  padding: 42px 46px;
+}
+.cta-banner h3 { font-size: clamp(1.3rem, 2.4vw, 1.7rem); font-weight: 700; margin-bottom: 8px; }
+.cta-banner p  { color: var(--ink-muted); max-width: 460px; font-size: .92rem; }
+.cta-actions   { display: flex; gap: 12px; flex-wrap: wrap; }

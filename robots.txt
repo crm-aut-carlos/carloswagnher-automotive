@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.carloswagnherautomotive.com.br/sitemap.xml

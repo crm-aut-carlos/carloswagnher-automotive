@@ -1,0 +1,147 @@
+/* ============================================================
+   cards.css — icon-card, tabs, vehicle grid (vcard)
+   ============================================================ */
+
+/* 4-column grid */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+
+/* ── Icon card ─────────────────────────────────────────────── */
+.icon-card {
+  background: var(--charcoal);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 30px 26px;
+  transition: transform .3s ease, border-color .3s ease, background .3s ease;
+}
+.icon-card:hover { transform: translateY(-6px); border-color: rgba(212,169,84,.5); background: var(--charcoal-2); }
+.icon-card .ic-wrap {
+  width: 46px; height: 46px;
+  border-radius: 10px;
+  background: rgba(212,169,84,.1);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  margin-bottom: 18px;
+}
+.icon-card h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; letter-spacing: .01em; }
+.icon-card p  { font-size: .88rem; color: var(--ink-muted); }
+
+/* ── Tabs ──────────────────────────────────────────────────── */
+.tabs { display: flex; justify-content: center; gap: 10px; margin-bottom: 42px; flex-wrap: wrap; }
+.tab-btn {
+  padding: 11px 22px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-muted);
+  font-weight: 600;
+  font-size: .86rem;
+  transition: .25s;
+}
+.tab-btn.active {
+  background: linear-gradient(135deg, var(--gold), var(--gold-deep));
+  color: var(--btn-gold-text);
+  border-color: transparent;
+}
+.tab-btn:not(.active):hover,
+.tab-btn:not(.active):focus-visible { border-color: var(--gold); color: var(--gold); }
+
+/* ── Vehicle grid ──────────────────────────────────────────── */
+.vehicle-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+
+/* Reserve space while JS renders (prevents CLS) */
+.vehicle-grid:empty { min-height: 420px; }
+
+.vcard {
+  background: var(--charcoal);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform .3s ease, border-color .3s ease;
+  display: flex;
+  flex-direction: column;
+}
+.vcard:hover { transform: translateY(-6px); border-color: rgba(212,169,84,.45); }
+.vcard[hidden] { display: none; }
+
+.vcard-media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(160deg, #1c1c22, #101013);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--line);
+}
+[data-theme="light"] .vcard-media {
+  background: linear-gradient(160deg, #ddd8cc, #cdc8bd);
+}
+.vcard-media > svg { width: 72%; color: var(--gold); opacity: .85; }
+.vcard-media::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0, transparent 7px,
+    rgba(212,169,84,.035) 7px, rgba(212,169,84,.035) 8px
+  );
+  pointer-events: none;
+}
+
+/* Photo variant */
+.vcard-media--photo { background: #0a0a0c; }
+.vcard-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  z-index: 0;
+}
+.vcard-media--photo::after { display: none; }
+
+.fav-btn {
+  position: absolute; top: 10px; right: 10px;
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: rgba(10,10,12,.6);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-muted);
+  transition: .2s;
+  z-index: 2;
+}
+.fav-btn:hover,
+.fav-btn:focus-visible { color: var(--gold); border-color: var(--gold); }
+.fav-btn.active { color: var(--gold); border-color: var(--gold); background: rgba(212,169,84,.12); }
+.fav-btn svg { width: 16px; height: 16px; }
+
+.badge-verified {
+  position: absolute; left: 10px; top: 10px;
+  display: flex; align-items: center; gap: 5px;
+  background: rgba(10,10,12,.7);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-family: var(--mono); font-size: .6rem; letter-spacing: .04em;
+  color: var(--gold-pale);
+  text-transform: uppercase;
+}
+.badge-verified svg { width: 11px; height: 11px; }
+
+.vcard-body { padding: 20px 20px 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+.vcard-body h3  { font-size: .98rem; font-weight: 700; line-height: 1.3; }
+.vcard-body .vsub { font-size: .74rem; color: var(--ink-muted); }
+
+.vspecs { display: flex; gap: 14px; flex-wrap: wrap; font-family: var(--mono); font-size: .72rem; color: var(--ink-muted); }
+.vspecs span { display: inline-flex; align-items: center; gap: 5px; }
+.vspecs svg  { width: 13px; height: 13px; color: var(--gold); }
+
+.vfuel { display: flex; gap: 6px; flex-wrap: wrap; }
+.vfuel span {
+  font-size: .62rem; letter-spacing: .03em; text-transform: uppercase;
+  border: 1px solid var(--line); border-radius: 20px; padding: 3px 9px;
+  color: var(--ink-muted); font-family: var(--mono);
+}
+
+.vprice { font-family: var(--mono); font-weight: 600; font-size: 1.18rem; color: var(--gold-pale); margin-top: auto; }
+.vprice small { display: block; font-size: .62rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: .05em; font-weight: 500; }

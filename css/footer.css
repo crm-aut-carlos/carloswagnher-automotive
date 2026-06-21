@@ -1,0 +1,92 @@
+/* ============================================================
+   footer.css — Footer + floating actions
+   ============================================================ */
+
+footer { border-top: 1px solid var(--line); padding: 64px 0 28px; margin-top: 40px; }
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.footer-brand p { color: var(--ink-muted); font-size: .86rem; margin-top: 14px; max-width: 280px; }
+
+.footer-col h4 {
+  font-size: .78rem; text-transform: uppercase; letter-spacing: .08em;
+  color: var(--gold); margin-bottom: 16px;
+}
+.footer-col a,
+.footer-col li { display: block; color: var(--ink-muted); font-size: .86rem; margin-bottom: 10px; transition: color .2s; }
+.footer-col a:hover { color: var(--gold); }
+
+.footer-contact { display: flex; align-items: center; gap: 8px; }
+.footer-contact svg { width: 14px; height: 14px; color: var(--gold); flex-shrink: 0; }
+
+.socials { display: flex; gap: 10px; margin-top: 6px; }
+.social-ic {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-muted);
+  transition: .2s;
+}
+.social-ic:hover,
+.social-ic:focus-visible { border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+.social-ic svg { width: 15px; height: 15px; }
+
+.footer-bottom {
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+  display: flex; justify-content: space-between; flex-wrap: wrap;
+  gap: 10px;
+  font-size: .76rem; color: var(--ink-muted);
+}
+
+/* ── Floating action buttons ───────────────────────────────── */
+.fab-wrap {
+  position: fixed; right: 22px; bottom: 22px;
+  z-index: 90;
+  display: flex; flex-direction: column; gap: 12px; align-items: flex-end;
+}
+
+.fab-whats {
+  width: 58px; height: 58px;
+  border-radius: 50%;
+  background: #23d56f;
+  display: flex; align-items: center; justify-content: center;
+  color: #0a0a0c;
+  box-shadow: 0 10px 30px -8px rgba(35,213,111,.6);
+  position: relative;
+}
+.fab-whats svg { width: 28px; height: 28px; }
+.fab-whats::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: 50%;
+  background: #23d56f;
+  animation: pulse 2.2s ease-out infinite;
+  z-index: -1;
+}
+@keyframes pulse {
+  0%   { transform: scale(1);   opacity: .6; }
+  100% { transform: scale(1.9); opacity: 0;  }
+}
+
+.fab-top {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: var(--charcoal);
+  border: 1px solid var(--line);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink-muted);
+  opacity: 0; pointer-events: none;
+  transform: translateY(8px);
+  transition: opacity .3s, transform .3s, color .2s, border-color .2s;
+}
+.fab-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.fab-top:hover,
+.fab-top:focus-visible { color: var(--gold); border-color: var(--gold); }
+.fab-top svg { width: 16px; height: 16px; }

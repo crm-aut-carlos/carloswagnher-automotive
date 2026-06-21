@@ -1,0 +1,53 @@
+/* Híbridos — edite aqui para atualizar o estoque.
+   Campo `imagem` é opcional: quando presente exibe foto real; caso omitido usa silhueta SVG. */
+
+export const hibridos = [
+  {
+    nome: 'Toyota Corolla Cross',
+    versao: '1.8 VVT-i Hybrid Flex XRX CVT',
+    ano: '21/22',
+    cor: 'Prata',
+    km: '95.730 km',
+    combustivel: ['Híbrido', 'Gasolina'],
+    preco: 'R$ 151.200,00',
+    imagem: 'img/hibrido-corolla-cross.png',
+    silhueta: 'car-suv',
+    mensagemWhatsapp: 'Olá Carlos! Quero saber mais sobre o Toyota Corolla Cross 1.8 Hybrid XRX CVT 21/22 Prata que vi no site.',
+  },
+  {
+    nome: 'GWM Haval',
+    versao: '1.5 PHEV Premium AWD e-Traction',
+    ano: '24/25',
+    cor: 'Cinza',
+    km: '32.601 km',
+    combustivel: ['Híbrido Plug-in'],
+    preco: 'R$ 225.000,00',
+    imagem: 'img/hibrido-haval-phev.png',
+    silhueta: 'car-suv',
+    mensagemWhatsapp: 'Olá Carlos! Quero saber mais sobre o GWM Haval 1.5 PHEV Premium AWD 24/25 Cinza que vi no site.',
+  },
+  {
+    nome: 'Kia Niro',
+    versao: '1.6 GDi HEV SX Prestige DCT',
+    ano: '23/23',
+    cor: 'Azul',
+    km: '36.162 km',
+    combustivel: ['Híbrido', 'Gasolina'],
+    preco: 'R$ 142.000,00',
+    imagem: 'img/hibrido-kia-niro.png',
+    silhueta: 'car-hibrido',
+    mensagemWhatsapp: 'Olá Carlos! Quero saber mais sobre o Kia Niro 1.6 GDi HEV SX Prestige DCT 23/23 Azul que vi no site.',
+  },
+  {
+    nome: 'BMW X3',
+    versao: '2.0 16V Híbrido xDrive30e Steptronic',
+    ano: '23/24',
+    cor: 'Preto',
+    km: '35.530 km',
+    combustivel: ['Híbrido Plug-in'],
+    preco: 'R$ 303.900,00',
+    imagem: 'img/hibrido-bmw-x3.png',
+    silhueta: 'car-suv',
+    mensagemWhatsapp: 'Olá Carlos! Quero saber mais sobre o BMW X3 xDrive30e 23/24 Preto que vi no site.',
+  },
+];
